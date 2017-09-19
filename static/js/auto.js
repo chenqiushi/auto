@@ -103,7 +103,7 @@ if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
 "use strict";
 /* unused harmony export inWindowScope */
 /* harmony export (immutable) */ __webpack_exports__["c"] = isObject;
-/* harmony export (immutable) */ __webpack_exports__["g"] = isNumeric;
+/* harmony export (immutable) */ __webpack_exports__["h"] = isNumeric;
 /* unused harmony export isEmpty */
 /* unused harmony export isEvent */
 /* unused harmony export isBlob */
@@ -113,8 +113,8 @@ if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
 /* harmony export (immutable) */ __webpack_exports__["a"] = isPromise;
 /* harmony export (immutable) */ __webpack_exports__["d"] = sleep;
 /* harmony export (immutable) */ __webpack_exports__["e"] = search2obj;
-/* harmony export (immutable) */ __webpack_exports__["i"] = obj2search;
-/* harmony export (immutable) */ __webpack_exports__["h"] = promisifyOneTimeEventListener;
+/* harmony export (immutable) */ __webpack_exports__["g"] = obj2search;
+/* harmony export (immutable) */ __webpack_exports__["i"] = promisifyOneTimeEventListener;
 /* harmony export (immutable) */ __webpack_exports__["f"] = uuid;
 /* unused harmony export S4 */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_assert__ = __webpack_require__(9);
@@ -3702,7 +3702,7 @@ module.exports = function (module) {
 
 var list = ['cache.add', 'cache.addAll', 'cache.delete', 'cache.match', 'cache.put', 'cache.keys', 'caches.delete', 'caches.has', 'caches.open'];
 function genWaiter() {
-  return Promise.race([__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["h" /* promisifyOneTimeEventListener */])(function () {}, navigator.serviceWorker, 'controllerchange'), __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["d" /* sleep */])(3000)]);
+  return Promise.race([__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["i" /* promisifyOneTimeEventListener */])(function () {}, navigator.serviceWorker, 'controllerchange'), __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["d" /* sleep */])(3000)]);
 }
 /* harmony default export */ __webpack_exports__["a"] = (function () {
   function _recursive() {
@@ -3762,7 +3762,8 @@ function genWaiter() {
       return navigator.serviceWorker.register('/auto/empty-sw.js', { scope: '/auto/' });
     }
   }).then(function () {
-    location.search = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_utils__["i" /* obj2search */])(Object.assign(search, { step: step }));
+    localStorage.setItem('from', 'step0');
+    location.search = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_utils__["g" /* obj2search */])(Object.assign(search, { step: step }));
   });
 });
 
@@ -3924,7 +3925,7 @@ function controllerchangeCauseByNormalInstall(evt) {
   }).then(function () {});
 }
 function genWaiter(fn) {
-  return Promise.race([__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["h" /* promisifyOneTimeEventListener */])(fn, navigator.serviceWorker, 'controllerchange'), __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["d" /* sleep */])(3000).then(fn)]);
+  return Promise.race([__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["i" /* promisifyOneTimeEventListener */])(fn, navigator.serviceWorker, 'controllerchange'), __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["d" /* sleep */])(3000).then(fn)]);
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (function () {
@@ -3957,6 +3958,7 @@ function genWaiter(fn) {
   var i, hasSW, waiter, reg, activateWaitUntilScore, response, clarify, clientsclaimScore, sum, _i, key, score, _test2;
 
   return Promise.resolve().then(function () {
+    localStorage.setItem('from', 'refresh');
     __webpack_require__(64);
     // init all the feature as zero
     i = list.length - 1;
@@ -4063,18 +4065,18 @@ function genWaiter() {
     //   await store.put('feature', 'messageChannel.port1', 'main-msg-got-by')
     // })
   }
-  return Promise.race(tasks.concat([__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["h" /* promisifyOneTimeEventListener */])(function (error) {
+  return Promise.race(tasks.concat([__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["i" /* promisifyOneTimeEventListener */])(function (error) {
     return Promise.resolve().then(function () {
       console.error(error);
       return __WEBPACK_IMPORTED_MODULE_0_store__["a" /* default */].put('feature', 0, 'main-msg-got');
     }).then(function () {});
-  }, window, 'error'), __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["h" /* promisifyOneTimeEventListener */])(function (event) {
+  }, window, 'error'), __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["i" /* promisifyOneTimeEventListener */])(function (event) {
     return Promise.resolve().then(function () {
       // await store.put('feature', 'window', 'main-msg-got-by')
       console.warn('Got reply from serviceWorker via window', event.data);
       return __WEBPACK_IMPORTED_MODULE_0_store__["a" /* default */].put('feature', 0.5, 'main-msg-got');
     }).then(function () {});
-  }, window, 'message'), __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["h" /* promisifyOneTimeEventListener */])(function (event) {
+  }, window, 'message'), __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["i" /* promisifyOneTimeEventListener */])(function (event) {
     return Promise.resolve().then(function () {
       // await store.put('feature', 'navigator.serviceWorker', 'main-msg-got-by')
       console.log('Got reply from serviceWorker via navigator.serviceWorker', event.data);
@@ -4106,7 +4108,7 @@ function genWaiter() {
         messageWaiter = genWaiter();
 
         console.log(navigator.serviceWorker);
-        activatedWaiter = Promise.race([__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["h" /* promisifyOneTimeEventListener */])(function (evt) {
+        activatedWaiter = Promise.race([__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["i" /* promisifyOneTimeEventListener */])(function (evt) {
           return console.log('controllerchange');
         }, navigator.serviceWorker, 'controllerchange'), __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["d" /* sleep */])(3000)]);
         return navigator.serviceWorker.register('/auto/postmessage-sw.js', { scope: '/auto/' });
@@ -4160,7 +4162,7 @@ function genWaiter() {
 
 var list = ['pushManager.subscribe', 'pushManager.getSubscription', 'pushSubscription.unsubscribe', 'pushManager.permissionState', 'pushManager.denied'];
 function genWaiter() {
-  return Promise.race([__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["h" /* promisifyOneTimeEventListener */])(function () {}, navigator.serviceWorker, 'controllerchange'), __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["d" /* sleep */])(3000)]);
+  return Promise.race([__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["i" /* promisifyOneTimeEventListener */])(function () {}, navigator.serviceWorker, 'controllerchange'), __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["d" /* sleep */])(3000)]);
 }
 
 function urlB64ToUint8Array(base64String) {
@@ -4331,7 +4333,7 @@ function urlB64ToUint8Array(base64String) {
 
 
 function genRGB(score) {
-  score = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["g" /* isNumeric */])(score) ? score : 0;
+  score = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["h" /* isNumeric */])(score) ? score : 0;
   return [~~(141 - 141 * score), ~~(49 + 101 * score), 24];
 }
 
@@ -4343,7 +4345,7 @@ function genRGB(score) {
         return __WEBPACK_IMPORTED_MODULE_0_store__["a" /* default */].get('feature', key);
       }).then(function (_resp) {
         scoreStr = _resp;
-        isNote = scoreStr && !__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["g" /* isNumeric */])(scoreStr);
+        isNote = scoreStr && !__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["h" /* isNumeric */])(scoreStr);
         score = isNote ? scoreStr : parseFloat(scoreStr || 0);
         _rgb = isNote ? [0, 0, 0] : genRGB(score);
 
@@ -4432,7 +4434,7 @@ function genRGB(score) {
           });
         }
       }).then(function () {
-        if (_test && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["g" /* isNumeric */])(score)) {
+        if (_test && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["h" /* isNumeric */])(score)) {
           summary[kind][key] = parseFloat(score);
         } else {
           if (_test) {
@@ -4488,7 +4490,8 @@ function genRGB(score) {
       url: 'https://lavas.baidu.com/ready/statistic',
       data: {
         id: id,
-        data: summary
+        info: summary.info,
+        feature: summary.feature
       }
     });
 
@@ -4513,7 +4516,7 @@ function genRGB(score) {
     if (!!hasSW) {
       return Promise.resolve().then(function () {
         __WEBPACK_IMPORTED_MODULE_0_store__["a" /* default */].put('feature', 0, 'syncEvent');
-        activatedWaiter = Promise.race([__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["h" /* promisifyOneTimeEventListener */])(function (evt) {
+        activatedWaiter = Promise.race([__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["i" /* promisifyOneTimeEventListener */])(function (evt) {
           return console.log('controllerchange');
         }, navigator.serviceWorker, 'controllerchange'), __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_utils__["d" /* sleep */])(3000)]);
         return navigator.serviceWorker.register('/auto/sync-sw.js', { scope: '/auto/' });
@@ -5495,6 +5498,9 @@ window.addEventListener('unhandledrejection', function (event) {
   console.warn('WARNING: Unhandled promise rejection. Shame on you! Reason: ' + event.reason);
 });
 __WEBPACK_IMPORTED_MODULE_17__helper__["a" /* info */].totalSchedule = 8;
+var uaInfo = {
+  info: {}
+};
 
 var _search2obj = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_12_utils__["e" /* search2obj */])(),
     _search2obj$step = _search2obj.step,
@@ -5503,32 +5509,59 @@ var _search2obj = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_12_utils__["e"
     fr = _search2obj$fr === undefined ? '' : _search2obj$fr;
 
 (function main() {
-  var id, _discriminant, _match, _brokenOut;
+  var id, ua, search, _test, _discriminant, _match, _brokenOut;
 
   return Promise.resolve().then(function () {
     return __WEBPACK_IMPORTED_MODULE_13_store__["a" /* default */].get('uuid', 'id');
   }).then(function (_resp) {
     id = _resp;
 
-    // 如若是manifest的测试,直接返回了
-
     if (!id) {
       return __WEBPACK_IMPORTED_MODULE_13_store__["a" /* default */].put('uuid', __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_12_utils__["f" /* uuid */])(), 'id');
     }
   }).then(function () {
-    if (fr && fr === 'manifesticon') {
-      __WEBPACK_IMPORTED_MODULE_14_axios___default()({
-        method: 'post',
-        url: 'https://lavas.baidu.com/ready/statistic',
-        data: {
-          id: id,
-          manifest: {
-            addToScreen: 1
+    // 如若是manifest的测试,直接返回了
+
+
+    // 如果是step=1刷新，则重定向到step=0，重新走测试流程
+    _test = fr && fr === 'manifesticon';
+
+    if (_test) {
+      return Promise.resolve().then(function () {
+        return __WEBPACK_IMPORTED_MODULE_13_store__["a" /* default */].get('info', 'ua');
+      }).then(function (_resp) {
+        ua = _resp;
+      });
+    }
+  }).then(function () {
+    if (_test && !ua) {
+      return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__env_main__["a" /* default */])();
+    }
+  }).then(function () {
+    if (_test) {
+      return Promise.resolve().then(function () {
+        return setUa('info', __WEBPACK_IMPORTED_MODULE_17__helper__["b" /* infoKeys */]);
+      }).then(function () {
+        __WEBPACK_IMPORTED_MODULE_14_axios___default()({
+          method: 'post',
+          url: 'https://lavas.baidu.com/ready/statistic',
+          data: {
+            id: id,
+            info: uaInfo.info,
+            manifest: {
+              addToScreen: 1
+            }
           }
-        }
+        });
       });
     } else {
       return Promise.resolve().then(function () {
+        if (step === '1' && localStorage.getItem('from') !== 'step0') {
+          search = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_12_utils__["e" /* search2obj */])();
+
+          location.search = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_12_utils__["g" /* obj2search */])(Object.assign(search, { step: '0' }));
+        }
+
         _discriminant = step;
         _match = false;
         _brokenOut = false;
@@ -5585,6 +5618,48 @@ var _search2obj = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_12_utils__["e"
     }
   }).then(function () {});
 })();
+
+function setUa(kind, keys) {
+  function _recursive() {
+    var _test2;
+
+    return Promise.resolve().then(function () {
+      _test2 = i < keys.length;
+
+      if (_test2) {
+        return Promise.resolve().then(function () {
+          key = keys[i];
+          return __WEBPACK_IMPORTED_MODULE_13_store__["a" /* default */].get(kind, key);
+        }).then(function (_resp) {
+          score = _resp;
+        });
+      }
+    }).then(function () {
+      if (_test2 && __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_12_utils__["h" /* isNumeric */])(score)) {
+        uaInfo[kind][key] = parseFloat(score);
+      } else {
+        if (_test2) {
+          try {
+            uaInfo[kind][key] = JSON.parse(score);
+          } catch (error) {
+            uaInfo[kind][key] = score;
+          }
+        }
+      }
+
+      if (_test2) {
+        i++;
+        return _recursive();
+      }
+    });
+  }
+
+  var i, key, score;
+  return Promise.resolve().then(function () {
+    i = 0;
+    return _recursive();
+  }).then(function () {});
+}
 
 /***/ }),
 /* 84 */,
