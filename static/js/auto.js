@@ -7724,9 +7724,9 @@ function genWaiter(fn) {
           return __WEBPACK_IMPORTED_MODULE_3_store__["a" /* default */].put('feature', 1, 'navigator.serviceWorker');
 
         case 14:
-          navigator.serviceWorker.ready.then(function () {
-            return __WEBPACK_IMPORTED_MODULE_3_store__["a" /* default */].put('feature', 1, 'navigator.serviceWorker.ready');
-          });
+          if (navigator.serviceWorker.ready.then) {
+            __WEBPACK_IMPORTED_MODULE_3_store__["a" /* default */].put('feature', 1, 'navigator.serviceWorker.ready');
+          }
           waiter = genWaiter(controllerchangeCauseByNormalInstall);
           // register test, including install event, controllerchange, activate event
 
