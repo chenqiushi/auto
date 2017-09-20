@@ -7724,106 +7724,103 @@ function genWaiter(fn) {
           return __WEBPACK_IMPORTED_MODULE_3_store__["a" /* default */].put('feature', 1, 'navigator.serviceWorker');
 
         case 14:
-          _context2.next = 16;
-          return navigator.serviceWorker.ready.then(function () {
+          navigator.serviceWorker.ready.then(function () {
             return __WEBPACK_IMPORTED_MODULE_3_store__["a" /* default */].put('feature', 1, 'navigator.serviceWorker.ready');
           });
-
-        case 16:
           waiter = genWaiter(controllerchangeCauseByNormalInstall);
           // register test, including install event, controllerchange, activate event
 
-          _context2.next = 19;
+          _context2.next = 18;
           return navigator.serviceWorker.register('/auto/lifecycle-sw.js', { scope: '/auto/' });
 
-        case 19:
+        case 18:
           reg = _context2.sent;
 
           console.log('Registered!', reg);
-          _context2.next = 23;
+          _context2.next = 22;
           return waiter;
 
-        case 23:
-          _context2.next = 25;
+        case 22:
+          _context2.next = 24;
           return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4_utils__["d" /* sleep */])(3000);
 
-        case 25:
-          _context2.next = 27;
+        case 24:
+          _context2.next = 26;
           return __WEBPACK_IMPORTED_MODULE_3_store__["a" /* default */].get('feature', 'activateEvent.waitUntil');
 
-        case 27:
+        case 26:
           activateWaitUntilScore = _context2.sent;
-          _context2.next = 30;
+          _context2.next = 29;
           return __WEBPACK_IMPORTED_MODULE_3_store__["a" /* default */].put('feature', (parseFloat(activateWaitUntilScore) || 0) + 0.5, 'activateEvent.waitUntil');
 
-        case 30:
-          _context2.next = 32;
+        case 29:
+          _context2.next = 31;
           return fetch('/whoareyou.json');
 
-        case 32:
+        case 31:
           response = _context2.sent;
 
           if (!response.ok) {
-            _context2.next = 44;
+            _context2.next = 43;
             break;
           }
 
-          _context2.next = 36;
+          _context2.next = 35;
           return response.json();
 
-        case 36:
+        case 35:
           clarify = _context2.sent;
 
           console.log('clarify who controll the page', clarify);
 
           if (!(clarify['i am'] === 'lifecycle-sw')) {
-            _context2.next = 44;
+            _context2.next = 43;
             break;
           }
 
-          _context2.next = 41;
+          _context2.next = 40;
           return __WEBPACK_IMPORTED_MODULE_3_store__["a" /* default */].get('feature', 'clients.claim');
 
-        case 41:
+        case 40:
           clientsclaimScore = _context2.sent;
-          _context2.next = 44;
+          _context2.next = 43;
           return __WEBPACK_IMPORTED_MODULE_3_store__["a" /* default */].put('feature', (parseFloat(clientsclaimScore) || 0) + 0.5, 'clients.claim');
 
-        case 44:
-          _context2.next = 46;
+        case 43:
+          _context2.next = 45;
           return reg.unregister();
 
-        case 46:
+        case 45:
           console.log('Unregistered');
           sum = 0;
           _i = 0;
 
-        case 49:
+        case 48:
           if (!(_i < list.length)) {
-            _context2.next = 58;
+            _context2.next = 57;
             break;
           }
 
           key = list[_i];
-          _context2.next = 53;
+          _context2.next = 52;
           return __WEBPACK_IMPORTED_MODULE_3_store__["a" /* default */].get('feature', key);
 
-        case 53:
+        case 52:
           score = _context2.sent;
 
           sum += parseFloat(score);
 
-        case 55:
+        case 54:
           _i++;
-          _context2.next = 49;
+          _context2.next = 48;
           break;
 
-        case 58:
+        case 57:
           sum /= list.length;
-          _context2.next = 61;
+          _context2.next = 60;
           return __WEBPACK_IMPORTED_MODULE_3_store__["a" /* default */].put('feature', sum, 'lifecycle');
 
-        case 61:
+        case 60:
         case 'end':
           return _context2.stop();
       }
