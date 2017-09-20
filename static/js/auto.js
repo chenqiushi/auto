@@ -6537,7 +6537,7 @@ function genWaiter(fn) {
   var hasSW = !!navigator.serviceWorker;
   if (!hasSW) return;
   await __WEBPACK_IMPORTED_MODULE_1_store__["a" /* default */].put('feature', 1, 'navigator.serviceWorker');
-  navigator.serviceWorker.ready.then(function () {
+  await navigator.serviceWorker.ready.then(function () {
     return __WEBPACK_IMPORTED_MODULE_1_store__["a" /* default */].put('feature', 1, 'navigator.serviceWorker.ready');
   });
   var waiter = genWaiter(controllerchangeCauseByNormalInstall);
