@@ -60,18 +60,31 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/static/";
+/******/ 	__webpack_require__.p = "/dist/auto/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 223);
+/******/ 	return __webpack_require__(__webpack_require__.s = 212);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 223:
+/***/ 212:
 /***/ (function(module, exports) {
 
+// import {registerConsole} from 'utils';
+
+// registerConsole();
+
 console.log('i am empty');
+
+// self.addEventListener('install', function (event) {
+//     console.log('Install event empty', event);
+//     self.skipWaiting();
+// });
+
+// self.addEventListener('activate', function (event) {
+//     console.log('Activate event empty', event);
+// });
 
 /***/ })
 

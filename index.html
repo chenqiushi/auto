@@ -20,7 +20,7 @@
   <link rel="manifest" href="/auto/manifest.json">
 </head>
 <body>
-    <link href="/auto/static/css/auto.css" rel="stylesheet">
+    <link href="/auto/css/index.css" rel="stylesheet">
   <article>
     <div class="lang-switch"></div>
      <header>
@@ -35,6 +35,8 @@
       <p class="os">操作系统：<span></span>.</p>
       <p class="device">设备型号：<span></span>.</p>
       <p class="schedule">测试进度：<span>0%</span></p>
+      <span class="test-again">重新测试</span>
+      <span class="send-data hide">发送数据</span>
     </section>
     <section class="features">
       <table>
@@ -50,14 +52,18 @@
     <section class="summary">
       <p>Summary</p>
       <code></code>
+      <div class="send-data-tip trans-fadeout hide-tip">Success!</div>
       <!-- <button class="success">copy</button> -->
     </section>
   </article>
   <script>
     window.SD = {
+      testTips: {
+        fail: "对不起，您的浏览器无法完成我们的测试。"
+      }
     }
   </script>
-  <script type="text/javascript" src="/auto/static/js/auto.js"></script>
+  <script type="text/javascript" src="/auto/index.js"></script>
 
 </body>
 </html>
