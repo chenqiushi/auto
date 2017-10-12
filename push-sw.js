@@ -487,8 +487,8 @@ module.exports = __webpack_require__(163);
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_0__indexeddb_js__["a" /* default */]({
     name: 'test',
-    version: 2,
-    objectStores: ['feature', 'info', 'uuid', 'log']
+    version: 1,
+    objectStores: ['feature', 'info', 'uuid']
 }));
 
 /***/ }),
